@@ -32,9 +32,15 @@ function isOptionSelected(){
 
 function setQuestion(){
     let dataQuestionIndex = Number.parseInt($('#question[data-question-index]').attr('data-question-index')) + 1 || 0;
-    let question = questionsArr[dataQuestionIndex]['question'];
+    
+    if (dataQuestionIndex == questionsArr.length){ // Answered final question
+        // Tabulate total score
+        alert('Total score: ' + score);
+    }
+    
     let points = questionsArr[dataQuestionIndex]['points'] || 0;
     let optionArr = questionsArr[dataQuestionIndex]['option'];
+    let question = questionsArr[dataQuestionIndex]['question'];
 
     if (dataQuestionIndex == questionsArr.length){
         alert("reached the end of arr index");
